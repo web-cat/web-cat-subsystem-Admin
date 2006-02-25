@@ -150,8 +150,15 @@ public class PropertyListPage
             {
                 newPropertyValue = "";
             }
-            System.setProperty( newPropertyName, newPropertyValue );
-            er.extensions.ERXLogger.configureLoggingWithSystemProperties();
+            WCConfigurationFile config = Application.configurationProperties();
+            config.setProperty( newPropertyName, newPropertyValue );
+            config.attemptToSave();
+            // This may be redundant if the file is actually saved and the
+            // changes are picked up by the ERExtensions notification
+            // listeners, but that may not happen in a production environment,
+            // and won't happen if the config file isn't writeable, so we'll
+            // be conservative and do it anyway.
+            config.updateToSystemProperties();
             errorMessage( "System property \"" + newPropertyName
                 + "\" set to \"" + newPropertyValue + "\"." );
         }
