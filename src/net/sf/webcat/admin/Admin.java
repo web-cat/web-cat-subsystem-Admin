@@ -70,6 +70,8 @@ public class Admin
 
     //~ Instance/static variables .............................................
 
+    // TODO: this should be refactored into the Subsystem parent class,
+    // but that means handling Core in an appropriate way.
     private static NSArray subsystemTabTemplate;
     {
         NSBundle myBundle = NSBundle.bundleForClass( Admin.class );
