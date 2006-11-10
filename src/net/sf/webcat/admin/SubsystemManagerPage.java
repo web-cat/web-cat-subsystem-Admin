@@ -82,6 +82,8 @@ public class SubsystemManagerPage
     public void appendToResponse( WOResponse response, WOContext context )
     {
         terse = null;
+        ( (Application)Application.application() ).subsystemManager()
+            .refreshSubsystemDescriptorsAndProviders();
         subsystems = ERXArrayUtilities.sortedArraySortedWithKey(
             ( (Application)Application.application() )
                 .subsystemManager().subsystems(),
@@ -89,11 +91,6 @@ public class SubsystemManagerPage
             EOSortOrdering.CompareCaseInsensitiveAscending );
         if ( newSubsystems == null )
         {
-            for ( Iterator i = FeatureProvider.providers().iterator();
-                  i.hasNext(); )
-            {
-                ( (FeatureProvider)i.next() ).refresh();
-            }
             newSubsystems = ERXArrayUtilities.sortedArraySortedWithKey(
                 newSubsystems(),
                 "name",
