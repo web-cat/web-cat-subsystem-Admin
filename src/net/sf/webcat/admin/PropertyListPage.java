@@ -158,7 +158,7 @@ public class PropertyListPage
             // and won't happen if the config file isn't writeable, so we'll
             // be conservative and do it anyway.
             config.updateToSystemProperties();
-            confirmMessage( "System property \"" + newPropertyName
+            confirmationMessage( "System property \"" + newPropertyName
                 + "\" set to \"" + newPropertyValue + "\"." );
         }
         return null;
