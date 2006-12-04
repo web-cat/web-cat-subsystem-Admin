@@ -161,7 +161,6 @@ public class SubsystemManagerPage
      */
     public WOComponent download()
     {
-        clearErrors();
         String msg = subsystem.descriptor().providerVersion().downloadTo(
             adaptor().updateDownloadLocation() );
         possibleErrorMessage( msg );
@@ -176,7 +175,6 @@ public class SubsystemManagerPage
      */
     public WOComponent downloadNew()
     {
-        clearErrors();
         String msg = feature.providerVersion().downloadTo(
             adaptor().updateDownloadLocation() );
         possibleErrorMessage( msg );
@@ -191,16 +189,15 @@ public class SubsystemManagerPage
      */
     public WOComponent scanNow()
     {
-        clearErrors();
         if ( providerURL == null || providerURL.equals( "" ) )
         {
-            errorMessage( "Please specify a provider URL first." );
+            error( "Please specify a provider URL first." );
         }
         else
         {
             if ( FeatureProvider.getProvider( providerURL ) == null )
             {
-                errorMessage( "Cannot read feature provider information from "
+                warning( "Cannot read feature provider information from "
                     + " specified URL: '" + providerURL + "'." );
             }
         }

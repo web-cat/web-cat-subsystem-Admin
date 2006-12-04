@@ -131,7 +131,7 @@ public class PropertyListPage
     // ----------------------------------------------------------
     public WOComponent back()
     {
-        clearErrors();
+        clearMessages();
         return pageWithName( SettingsPage.class.getName() );
     }
 
@@ -139,10 +139,9 @@ public class PropertyListPage
     // ----------------------------------------------------------
     public WOComponent setNewProperty()
     {
-        clearErrors();
         if ( newPropertyName == null || newPropertyName.equals( "" ) )
         {
-            errorMessage( "Please specify a property name to set." );
+            error( "Please specify a property name to set." );
         }
         else
         {
@@ -159,7 +158,7 @@ public class PropertyListPage
             // and won't happen if the config file isn't writeable, so we'll
             // be conservative and do it anyway.
             config.updateToSystemProperties();
-            errorMessage( "System property \"" + newPropertyName
+            confirmMessage( "System property \"" + newPropertyName
                 + "\" set to \"" + newPropertyValue + "\"." );
         }
         return null;
