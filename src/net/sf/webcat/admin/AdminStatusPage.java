@@ -27,7 +27,6 @@ package net.sf.webcat.admin;
 
 import com.webobjects.appserver.*;
 import com.webobjects.directtoweb.*;
-
 import net.sf.webcat.core.*;
 import er.extensions.ERXApplication;
 
@@ -71,5 +70,14 @@ public class AdminStatusPage
     {
         ERXApplication.erxApplication().killInstance();
         return null;
+    }
+
+
+    // ----------------------------------------------------------
+    public boolean canRestart()
+    {
+        return net.sf.webcat.WCServletAdaptor.getInstance() == null
+            || Application.configurationProperties()
+                .stringForKey( "coreKillAction" ) != null;
     }
 }
