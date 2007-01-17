@@ -164,6 +164,13 @@ public class SubsystemManagerPage
         String msg = subsystem.descriptor().providerVersion().downloadTo(
             adaptor().updateDownloadLocation() );
         possibleErrorMessage( msg );
+        if ( msg == null )
+        {
+            confirmationMessage( "The subsystem '" + subsystem.name()
+                + "' has been downloaded from its provider.  The downloaded "
+                + " version will replace the current version when " 
+                + "Web-CAT restarts." );
+        }
         return null;
     }
 
@@ -178,6 +185,12 @@ public class SubsystemManagerPage
         String msg = feature.providerVersion().downloadTo(
             adaptor().updateDownloadLocation() );
         possibleErrorMessage( msg );
+        if ( msg == null )
+        {
+            confirmationMessage( "New subsystem '" + feature.name()
+                + "' has been downloaded from its provider.  It will be "
+                + " installed when Web-CAT restarts." );
+        }
         return null;
     }
 
