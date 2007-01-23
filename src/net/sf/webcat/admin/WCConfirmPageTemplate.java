@@ -39,7 +39,8 @@ import er.directtoweb.*;
  *  @version $Id$
  */
 public class WCConfirmPageTemplate
-    extends er.directtoweb.ERD2WConfirmPage
+    extends com.webobjects.directtoweb.D2WConfirmPage
+//    extends er.directtoweb.ERD2WConfirmPage
 {
     //~ Constructors ..........................................................
 

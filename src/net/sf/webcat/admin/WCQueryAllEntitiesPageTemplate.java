@@ -53,25 +53,59 @@ public class WCQueryAllEntitiesPageTemplate
     public WCQueryAllEntitiesPageTemplate( WOContext aContext )
     {
         super( aContext );
-        log.debug( "constructor" );
     }
 
 
     //~ Methods ...............................................................
 
     // ----------------------------------------------------------
-    /* (non-Javadoc)
-     * @see com.webobjects.appserver.WOComponent#appendToResponse(com.webobjects.appserver.WOResponse, com.webobjects.appserver.WOContext)
-     */
     public void appendToResponse( WOResponse arg0, WOContext arg1 )
     {
-        log.debug( "appendToResponse()" );
-        // TODO Auto-generated method stub
+        rowFlip = true;
         super.appendToResponse( arg0, arg1 );
     }
 
 
+    // ----------------------------------------------------------
+    /**
+     * Returns the alternate row color for tables on this page.
+     * Because of the way the alternating row info is computed,
+     * this is really the color of the "first" row.  The d2w.d2wmodel
+     * rule file sets the table background to "#eeeeee" for list
+     * tasks to create the alternating effect.
+     *
+     * @return The color as a string
+     */
+    public String backgroundColorForTableDark()
+    {
+        return "white";
+    }
+
+
+    // ----------------------------------------------------------
+    public String backgroundColorForRow()
+    {
+        rowFlip = !rowFlip;
+        if (rowFlip || !alternateRowColor())
+        {
+            return backgroundColorForTable();
+        } else
+        {
+            return backgroundColorForTableDark();
+        }
+    }
+    
+
+    // ----------------------------------------------------------
+    public void setBackgroundColorForRow( String value )
+    {
+        // This isn't a settable attribute, so do nothing
+    }
+    
+
     //~ Instance/static variables .............................................
+
+    private boolean rowFlip = true;
 
     static Logger log =
         Logger.getLogger( WCQueryAllEntitiesPageTemplate.class );
