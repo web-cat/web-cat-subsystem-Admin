@@ -48,7 +48,7 @@ public class WCPageWrapper
     // ----------------------------------------------------------
     /**
      * Creates a new WCPageWrapper object.
-     * 
+     *
      * @param aContext The context to use
      */
     public WCPageWrapper( WOContext aContext )
@@ -56,6 +56,13 @@ public class WCPageWrapper
         super( aContext );
         log.debug( "constructor" );
     }
+
+
+    //~ KVC Attributes (must be public) .......................................
+
+    public String  stylesheet;
+    public String  externalJavascript;
+    public String  inlineHeaderContents;
 
 
     //~ Methods ...............................................................
