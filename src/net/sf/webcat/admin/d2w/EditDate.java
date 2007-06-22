@@ -39,7 +39,7 @@ import com.webobjects.foundation.*;
  *  @version $Id$
  */
 public class EditDate
-    extends er.directtoweb.ERDEditDateJavascript
+    extends er.directtoweb.ERDCustomEditComponent
 {
     //~ Constructors ..........................................................
 
