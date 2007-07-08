@@ -27,6 +27,7 @@ package net.sf.webcat.admin;
 
 import com.webobjects.appserver.*;
 import com.webobjects.foundation.*;
+import com.webobjects.directtoweb.*;
 import com.webobjects.eocontrol.*;
 import com.webobjects.eoaccess.*;
 import er.directtoweb.*;
@@ -47,7 +48,7 @@ public class WCListPageTemplate
     // ----------------------------------------------------------
     /**
      * Creates a new WCListPageTemplate object.
-     * 
+     *
      * @param context The page's context
      */
     public WCListPageTemplate( WOContext context )
@@ -72,4 +73,27 @@ public class WCListPageTemplate
     {
         return "white";
     }
+
+
+    // ----------------------------------------------------------
+    public void setLocalContext( D2WContext arg0 )
+    {
+        super.setLocalContext( arg0 );
+        if ( setUpSortOrdering )
+        {
+            // override default sort ordering with a new one from the
+            // d2w properties
+            NSArray sortOrderings = (NSArray)d2wContext().valueForKey(
+                "defaultSortOrdering" );
+            if ( sortOrderings != null )
+            {
+                displayGroup().setSortOrderings( sortOrderings );
+            }
+            setUpSortOrdering = false;
+        }
+    }
+
+
+    //~ Instance/static variables .............................................
+    private boolean setUpSortOrdering = true;
 }
