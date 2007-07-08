@@ -29,7 +29,7 @@ import com.webobjects.appserver.*;
 
 //-------------------------------------------------------------------------
 /**
- * A customized versuib of {@link er.directtoweb.ERD2WDisplayDateOrNull}
+ * A customized version of {@link er.directtoweb.ERD2WDisplayDateOrNull}
  * that uses the user's specified date formatting and selected time zone.
  *
  *  @author edwards
