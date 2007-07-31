@@ -81,16 +81,38 @@ public class WCListPageTemplate
         super.setLocalContext( arg0 );
         if ( setUpSortOrdering )
         {
-            // override default sort ordering with a new one from the
-            // d2w properties
-            NSArray sortOrderings = (NSArray)d2wContext().valueForKey(
-                "defaultSortOrdering" );
+          // override default sort ordering with a new one from the
+          // d2w properties
+          NSArray sortOrderings = sortOrderings();
             if ( sortOrderings != null )
             {
                 displayGroup().setSortOrderings( sortOrderings );
             }
             setUpSortOrdering = false;
         }
+    }
+
+
+    // ----------------------------------------------------------
+    public NSArray sortOrderings()
+    {
+        NSArray sortOrderings = null;
+        if ( userPreferencesCanSpecifySorting() )
+        {
+            sortOrderings = (NSArray)
+                userPreferencesValueForPageConfigurationKey("sortOrdering");
+            if ( log.isDebugEnabled() )
+                log.debug(
+                    "Found sort Orderings in user prefs " + sortOrderings);
+        }
+        if (sortOrderings == null)
+        {
+            sortOrderings = (NSArray)d2wContext().valueForKey(
+                "defaultSortOrdering" );
+            if (log.isDebugEnabled())
+                log.debug("Found sort Orderings in rules " + sortOrderings);
+        }
+        return sortOrderings;
     }
 
 
