@@ -66,7 +66,7 @@ public class WCMenuHeader
         {
             WOComponent currentPage = context().page();
             _manipulatedEntityName =
-                D2W.factory().entityNameFromPage( currentPage );
+                D2W.entityNameFromPage( currentPage );
         }
         return _manipulatedEntityName;
     }
