@@ -37,7 +37,7 @@ import org.apache.log4j.Logger;
  * @version $Id$
  */
 public class WCListPageTemplate
-    extends er.directtoweb.ERD2WListPage
+    extends er.directtoweb.pages.ERD2WListPage
 {
     //~ Constructors ..........................................................
 

@@ -35,7 +35,7 @@ import net.sf.webcat.core.*;
  *  @version $Id$
  */
 public class EditTimeZoneName
-    extends er.directtoweb.ERDCustomEditComponent
+    extends er.directtoweb.components.ERDCustomEditComponent
 {
     //~ Constructors ..........................................................
 

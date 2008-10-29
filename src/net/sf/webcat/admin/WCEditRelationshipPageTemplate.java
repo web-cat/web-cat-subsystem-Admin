@@ -35,7 +35,7 @@ import er.directtoweb.*;
  *  @version $Id$
  */
 public class WCEditRelationshipPageTemplate
-    extends er.directtoweb.ERD2WEditRelationshipPage
+    extends er.directtoweb.pages.ERD2WEditRelationshipPage
 {
     //~ Constructors ..........................................................
 

@@ -23,7 +23,7 @@ package net.sf.webcat.admin;
 
 import com.webobjects.appserver.*;
 import com.webobjects.directtoweb.*;
-import er.extensions.ERXApplication;
+import er.extensions.appserver.ERXApplication;
 import net.sf.webcat.core.*;
 
 //-------------------------------------------------------------------------

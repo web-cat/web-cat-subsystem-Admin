@@ -35,7 +35,7 @@ import er.directtoweb.*;
  *  @version $Id$
  */
 public class WCErrorPageTemplate
-    extends er.directtoweb.ERD2WMessagePage
+    extends er.directtoweb.pages.ERD2WMessagePage
 {
     //~ Constructors ..........................................................
 

@@ -36,7 +36,7 @@ import org.apache.log4j.*;
  *  @version $Id$
  */
 public class WCQueryAllEntitiesPageTemplate
-    extends er.directtoweb.ERD2WQueryEntitiesPage
+    extends er.directtoweb.pages.ERD2WQueryEntitiesPage
 {
     //~ Constructors ..........................................................
 

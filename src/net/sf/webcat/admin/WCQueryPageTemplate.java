@@ -35,7 +35,7 @@ import er.directtoweb.*;
  *  @version $Id$
  */
 public class WCQueryPageTemplate
-    extends er.directtoweb.ERD2WQueryPage
+    extends er.directtoweb.pages.ERD2WQueryPage
 {
     //~ Constructors ..........................................................
 

@@ -28,7 +28,8 @@ import java.util.regex.*;
 
 //-------------------------------------------------------------------------
 /**
- * A customized version of {@link er.directtoweb.ERD2WDisplayString}
+ * A customized version of
+ * {@link er.directtoweb.components.strings.ERD2WDisplayString}
  * for displaying long strings.  It simply shows a count of the number
  * of lines and characters.
  *
@@ -36,7 +37,7 @@ import java.util.regex.*;
  *  @version $Id$
  */
 public class DisplayLineCount
-    extends er.directtoweb.ERD2WDisplayString
+    extends er.directtoweb.components.strings.ERD2WDisplayString
 {
     //~ Constructors ..........................................................
 

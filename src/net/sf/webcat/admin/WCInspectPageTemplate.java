@@ -35,7 +35,7 @@ import er.directtoweb.*;
  *  @version $Id$
  */
 public class WCInspectPageTemplate
-    extends er.directtoweb.ERD2WInspectPageTemplate
+    extends er.directtoweb.pages.templates.ERD2WInspectPageTemplate
 {
     //~ Constructors ..........................................................
 

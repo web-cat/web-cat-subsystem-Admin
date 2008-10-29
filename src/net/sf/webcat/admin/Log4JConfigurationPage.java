@@ -36,7 +36,7 @@ import org.apache.log4j.Logger;
  *  @version $Id$
  */
 public class Log4JConfigurationPage
-    extends er.extensions.ERXLog4JConfiguration
+    extends er.extensions.logging.ERXLog4JConfiguration
 {
     //~ Constructors ..........................................................
 

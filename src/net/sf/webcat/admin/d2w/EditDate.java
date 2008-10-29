@@ -27,7 +27,8 @@ import com.webobjects.foundation.*;
 
 //-------------------------------------------------------------------------
 /**
- * A customized version of {@link er.directtoweb.ERDEditDateJavascript}
+ * A customized version of
+ * {@link er.directtoweb.components.ERDEditDateJavascript}
  * that uses the user's specified date formatting and selected time zone,
  * and also uses Web-CAT's preferred date picker widget.
  *
@@ -35,7 +36,7 @@ import com.webobjects.foundation.*;
  *  @version $Id$
  */
 public class EditDate
-    extends er.directtoweb.ERDCustomEditComponent
+    extends er.directtoweb.components.ERDCustomEditComponent
 {
     //~ Constructors ..........................................................
 

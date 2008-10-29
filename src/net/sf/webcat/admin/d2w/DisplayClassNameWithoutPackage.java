@@ -27,14 +27,15 @@ import java.sql.*;
 
 //-------------------------------------------------------------------------
 /**
- * A customized version of {@link er.directtoweb.ERD2WDisplayString}
+ * A customized version of
+ * {@link er.directtoweb.components.strings.ERD2WDisplayString}
  * for displaying class names--it strips off the leading package qualification.
  *
  *  @author edwards
  *  @version $Id$
  */
 public class DisplayClassNameWithoutPackage
-    extends er.directtoweb.ERD2WDisplayString
+    extends er.directtoweb.components.strings.ERD2WDisplayString
 {
     //~ Constructors ..........................................................
 

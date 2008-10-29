@@ -25,14 +25,15 @@ import com.webobjects.appserver.*;
 
 //-------------------------------------------------------------------------
 /**
- * A customized version of {@link er.directtoweb.ERD2WDisplayDateOrNull}
+ * A customized version of
+ * {@link er.directtoweb.components.dates.ERD2WDisplayDateOrNull}
  * that uses the user's specified date formatting and selected time zone.
  *
  *  @author edwards
  *  @version $Id$
  */
 public class DisplayDate
-    extends er.directtoweb.ERD2WDisplayDateOrNull
+    extends er.directtoweb.components.dates.ERD2WDisplayDateOrNull
 {
     //~ Constructors ..........................................................
 
