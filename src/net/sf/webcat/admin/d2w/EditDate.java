@@ -50,4 +50,26 @@ public class EditDate
     {
         super( context );
     }
+
+    // ----------------------------------------------------------
+    public String controlId()
+    {
+        if (id == null)
+        {
+            id = "date" + context().elementID();
+        }
+        return id;
+    }
+
+
+    // ----------------------------------------------------------
+    @Override
+    public void reset()
+    {
+        id = null;
+    }
+
+
+    // ----------------------------------------------------------
+    private String id = null;
 }
