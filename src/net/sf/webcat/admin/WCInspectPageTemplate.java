@@ -1,7 +1,7 @@
 /*==========================================================================*\
  |  $Id$
  |*-------------------------------------------------------------------------*|
- |  Copyright (C) 2006-2008 Virginia Tech
+ |  Copyright (C) 2006-2009 Virginia Tech
  |
  |  This file is part of Web-CAT.
  |
@@ -95,6 +95,20 @@ public class WCInspectPageTemplate
     public void setBackgroundColorForRow( String value )
     {
         // This isn't a settable attribute, so do nothing
+    }
+
+
+    // ----------------------------------------------------------
+    public String cssClassForRow()
+    {
+        rowFlip = !rowFlip;
+        if (rowFlip && alternateRowColor())
+        {
+            return "e";
+        } else
+        {
+            return "o";
+        }
     }
 
 

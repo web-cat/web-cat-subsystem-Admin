@@ -1,7 +1,7 @@
 /*==========================================================================*\
  |  $Id$
  |*-------------------------------------------------------------------------*|
- |  Copyright (C) 2006-2008 Virginia Tech
+ |  Copyright (C) 2006-2009 Virginia Tech
  |
  |  This file is part of Web-CAT.
  |
@@ -88,6 +88,20 @@ public class WCQueryAllEntitiesPageTemplate
         } else
         {
             return backgroundColorForTableDark();
+        }
+    }
+
+
+    // ----------------------------------------------------------
+    public String cssClassForRow()
+    {
+        rowFlip = !rowFlip;
+        if (rowFlip && alternateRowColor())
+        {
+            return "e";
+        } else
+        {
+            return "o";
         }
     }
 

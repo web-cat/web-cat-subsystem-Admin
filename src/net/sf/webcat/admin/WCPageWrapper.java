@@ -1,7 +1,7 @@
 /*==========================================================================*\
  |  $Id$
  |*-------------------------------------------------------------------------*|
- |  Copyright (C) 2006-2008 Virginia Tech
+ |  Copyright (C) 2006-2009 Virginia Tech
  |
  |  This file is part of Web-CAT.
  |
@@ -56,6 +56,8 @@ public class WCPageWrapper
     public String  stylesheet;
     public String  externalJavascript;
     public String  inlineHeaderContents;
+    public boolean alreadyWrapped = false;
+    public String  title;
 
 
     //~ Methods ...............................................................
@@ -68,8 +70,28 @@ public class WCPageWrapper
     {
         log.debug( "appendToResponse()" );
         // TODO Auto-generated method stub
+        if (parent() != null && parent().parent() != null)
+        {
+            alreadyWrapped = true;
+            title = "Target(s)";
+        }
+        else
+        {
+            title = ((Session)session()).tabs.selectedDescendant().label();
+        }
         super.appendToResponse( arg0, arg1 );
-        log.debug( "container = " + arg1.page().getClass().getName() );
+        if (log.isDebugEnabled())
+        {
+            log.debug( "container = " + arg1.page().getClass().getName() );
+            WOComponent c = this.parent();
+            String result = this.getClass().getName();
+            while (c != null)
+            {
+                result += ", " + c.getClass().getName();
+                c = c.parent();
+            }
+            log.debug("ancestors: " + result);
+        }
     }
 
 

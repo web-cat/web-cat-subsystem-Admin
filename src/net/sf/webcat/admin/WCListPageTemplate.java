@@ -1,7 +1,7 @@
 /*==========================================================================*\
  |  $Id$
  |*-------------------------------------------------------------------------*|
- |  Copyright (C) 2006-2008 Virginia Tech
+ |  Copyright (C) 2006-2009 Virginia Tech
  |
  |  This file is part of Web-CAT.
  |
@@ -109,6 +109,23 @@ public class WCListPageTemplate
                 log.debug("Found sort Orderings in rules " + sortOrderings);
         }
         return sortOrderings;
+    }
+
+
+    // ----------------------------------------------------------
+    public String cssClassForRow()
+    {
+        String result = "o";
+        _rowFlip = !_rowFlip;
+        if (alternateRowColor() && _rowFlip)
+        {
+            result = "e";
+        }
+        if (isSelecting() && selectedObjects().containsObject(object()))
+        {
+            result += " selected";
+        }
+        return result;
     }
 
 
