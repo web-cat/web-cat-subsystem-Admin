@@ -21,6 +21,7 @@
 
 package net.sf.webcat.admin.d2w;
 
+import java.util.TimeZone;
 import com.webobjects.appserver.*;
 import com.webobjects.eoaccess.*;
 import com.webobjects.foundation.*;
@@ -51,25 +52,11 @@ public class EditDate
         super( context );
     }
 
+
     // ----------------------------------------------------------
-    public String controlId()
+    public TimeZone timeZone()
     {
-        if (id == null)
-        {
-            id = "date" + context().elementID();
-        }
-        return id;
+        return TimeZone.getTimeZone(
+                (String) session().valueForKeyPath("user.timeZoneName"));
     }
-
-
-    // ----------------------------------------------------------
-    @Override
-    public void reset()
-    {
-        id = null;
-    }
-
-
-    // ----------------------------------------------------------
-    private String id = null;
 }
