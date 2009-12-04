@@ -226,8 +226,8 @@ public class SubsystemManagerPage
      */
     public WOComponent edit()
     {
-        ConfigureSubsystemPage page = (ConfigureSubsystemPage)
-            pageWithName( ConfigureSubsystemPage.class.getName() );
+        ConfigureSubsystemPage page =
+            pageWithName(ConfigureSubsystemPage.class);
         page.subsystem = subsystem;
         page.nextPage = this;
         return page;

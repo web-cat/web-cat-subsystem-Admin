@@ -132,7 +132,7 @@ public class PropertyListPage
     public WOComponent back()
     {
         clearMessages();
-        return pageWithName( SettingsPage.class.getName() );
+        return pageWithName(SettingsPage.class);
     }
 
 
