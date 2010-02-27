@@ -63,9 +63,6 @@ public class WCPageWrapper
     //~ Methods ...............................................................
 
     // ----------------------------------------------------------
-    /* (non-Javadoc)
-     * @see com.webobjects.appserver.WOComponent#appendToResponse(com.webobjects.appserver.WOResponse, com.webobjects.appserver.WOContext)
-     */
     public void appendToResponse( WOResponse arg0, WOContext arg1 )
     {
         log.debug( "appendToResponse()" );
@@ -95,7 +92,58 @@ public class WCPageWrapper
     }
 
 
+    // ----------------------------------------------------------
+    @Override
+    public void awake()
+    {
+        if (currentTab != null)
+        {
+            reselectCurrentTab();
+        }
+        super.awake();
+        currentTab();
+    }
+
+
+    // ----------------------------------------------------------
+    /**
+     * Get the selected tab that corresponds to this component's page.
+     * @return this page's navigation tab
+     */
+    public TabDescriptor currentTab()
+    {
+        if (currentTab == null)
+        {
+            currentTab = ((Session)session()).tabs.selectedDescendant();
+        }
+        return currentTab;
+    }
+
+
+    // ----------------------------------------------------------
+    /**
+     * Set the tab that corresponds to this component's page.
+     * @param current this page's navigation tab
+     */
+    public void setCurrentTab(TabDescriptor current)
+    {
+        currentTab = current;
+    }
+
+
+    // ----------------------------------------------------------
+    public void reselectCurrentTab()
+    {
+        if (currentTab() != null)
+        {
+            currentTab().select();
+        }
+    }
+
+
     //~ Instance/static variables .............................................
+
+    private TabDescriptor currentTab;
 
     static Logger log = Logger.getLogger( WCPageWrapper.class );
 }
