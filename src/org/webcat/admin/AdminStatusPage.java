@@ -72,7 +72,7 @@ public class AdminStatusPage
     // ----------------------------------------------------------
     public boolean canRestart()
     {
-        return org.webcat.WCServletAdaptor.getInstance() == null
+        return net.sf.webcat.WCServletAdaptor.getInstance() == null
             || Application.configurationProperties()
                 .stringForKey( "coreKillAction" ) != null;
     }
