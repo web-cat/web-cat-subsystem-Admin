@@ -22,18 +22,14 @@
 package org.webcat.admin;
 
 import com.webobjects.appserver.*;
-import com.webobjects.eoaccess.*;
-import com.webobjects.eocontrol.*;
-import com.webobjects.foundation.*;
-import org.apache.log4j.Logger;
-import org.webcat.core.*;
 
 // -------------------------------------------------------------------------
 /**
  * A component for managing log4J settings.
  *
- *  @author edwards
- *  @version $Id$
+ *  @author  Stephen Edwards
+ *  @author  Last changed by $Author$
+ *  @version $Revision$, $Date$
  */
 public class Log4JConfigurationPage
     extends er.extensions.logging.ERXLog4JConfiguration
@@ -46,26 +42,26 @@ public class Log4JConfigurationPage
      *
      * @param context The context to use
      */
-    public Log4JConfigurationPage( WOContext context )
+    public Log4JConfigurationPage(WOContext context)
     {
-        super( context );
+        super(context);
     }
 
 
     //~ Methods ...............................................................
 
     // ----------------------------------------------------------
-    public void appendToResponse( WOResponse response, WOContext context )
+    public void appendToResponse(WOResponse response, WOContext context)
     {
         session().setObjectForKey(
-            Boolean.TRUE, "ERXLog4JConfiguration.enabled" );
-        super.appendToResponse( response, context );
+            Boolean.TRUE, "ERXLog4JConfiguration.enabled");
+        super.appendToResponse(response, context);
     }
 
 
     // ----------------------------------------------------------
     public WOComponent back()
     {
-        return pageWithName( SettingsPage.class.getName() );
+        return pageWithName(SettingsPage.class.getName());
     }
 }

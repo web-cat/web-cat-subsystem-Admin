@@ -21,7 +21,6 @@
 
 package org.webcat.admin;
 
-import org.webcat.core.*;
 import com.webobjects.appserver.*;
 
 // -------------------------------------------------------------------------
@@ -32,8 +31,9 @@ import com.webobjects.appserver.*;
  *  while the other page is bare and is designed to deliver the license
  *  alone via a direct action.
  *
- *  @author edwards
- *  @version $Id$
+ *  @author  Stephen Edwards
+ *  @author  Last changed by $Author$
+ *  @version $Revision$, $Date$
  */
 public class AdminLicensePage
     extends WOComponent
@@ -46,8 +46,8 @@ public class AdminLicensePage
      *
      * @param context The context to use
      */
-    public AdminLicensePage( WOContext context )
+    public AdminLicensePage(WOContext context)
     {
-        super( context );
+        super(context);
     }
 }

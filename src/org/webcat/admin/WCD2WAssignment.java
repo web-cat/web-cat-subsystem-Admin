@@ -33,8 +33,9 @@ import org.apache.log4j.Logger;
  *  sets up the cache-significant keys for DirectToWeb use in its
  *  static initializer.
  *
- *  @author edwards
- *  @version $Id$
+ *  @author  Stephen Edwards
+ *  @author  Last changed by $Author$
+ *  @version $Revision$, $Date$
  */
 public class WCD2WAssignment
     extends com.webobjects.directtoweb.DefaultAssignment
@@ -46,10 +47,10 @@ public class WCD2WAssignment
      * Creates a new WCD2WAssignment object.
      * @param unarchiver
      */
-    public WCD2WAssignment( EOKeyValueUnarchiver unarchiver )
+    public WCD2WAssignment(EOKeyValueUnarchiver unarchiver)
     {
-        super( unarchiver );
-        log.debug( "constructor( " + unarchiver + " )" );
+        super(unarchiver);
+        log.debug("constructor( " + unarchiver + " )");
     }
 
 
@@ -59,10 +60,10 @@ public class WCD2WAssignment
      * @param keyPath
      * @param value
      */
-    public WCD2WAssignment( String keyPath, String value )
+    public WCD2WAssignment(String keyPath, String value)
     {
-        super( keyPath, value );
-        log.debug( "constructor( " + keyPath + ", " + value + " )" );
+        super(keyPath, value);
+        log.debug("constructor( " + keyPath + ", " + value + " )");
     }
 
 
@@ -78,17 +79,17 @@ public class WCD2WAssignment
         EOKeyValueUnarchiver eokeyvalueunarchiver
     )
     {
-        return new WCD2WAssignment( eokeyvalueunarchiver );
+        return new WCD2WAssignment(eokeyvalueunarchiver);
     }
 
 
     /*
     // ----------------------------------------------------------
-    public Object fire( D2WContext context )
+    public Object fire(D2WContext context)
     {
-        log.debug( "fire()" );
-        Object result = super.fire( context );
-        log.debug( "fire() = " + result );
+        log.debug("fire()");
+        Object result = super.fire(context);
+        log.debug("fire() = " + result);
         return result;
     }
     */
@@ -100,34 +101,35 @@ public class WCD2WAssignment
      * that start with "password" removed.
      * @return the property key list
      */
-    public NSArray defaultPropertyKeysFromEntity()
+    public NSArray<String> defaultPropertyKeysFromEntity()
     {
-        log.debug( "defaultPropertyKeysFromEntity()" );
-        NSArray superResult = super.defaultPropertyKeysFromEntity();
-        NSMutableArray result =
-            ( superResult instanceof NSMutableArray )
-            ? (NSMutableArray)superResult
-            : new NSMutableArray( superResult );
-        log.debug( "super = " + result );
-        for ( int i = 0; i < result.count(); i++ )
+        log.debug("defaultPropertyKeysFromEntity()");
+        @SuppressWarnings("unchecked")
+        NSArray<String> superResult = super.defaultPropertyKeysFromEntity();
+        NSMutableArray<String> result =
+            (superResult instanceof NSMutableArray)
+                ? (NSMutableArray<String>)superResult
+                : new NSMutableArray<String>(superResult);
+        log.debug("super = " + result);
+        for (int i = 0; i < result.count(); i++)
         {
-            String key = (String)result.objectAtIndex( i );
-            if ( key != null && (  key.startsWith( "preferences" )
-                                || key.endsWith( "onfigSettings" )
-                                || key.endsWith( "onfigDescription" ) ) )
+            String key = result.objectAtIndex(i);
+            if (key != null && (   key.startsWith("preferences")
+                                || key.endsWith("onfigSettings")
+                                || key.endsWith("onfigDescription")))
             {
-                result.removeObjectAtIndex( i );
+                result.removeObjectAtIndex(i);
                 i--;
             }
         }
-        log.debug( "result = " + result );
+        log.debug("result = " + result);
         return result;
     }
 
 
     //~ Instance/static variables .............................................
 
-    static Logger log = Logger.getLogger( WCD2WAssignment.class );
+    static Logger log = Logger.getLogger(WCD2WAssignment.class);
 
     // Sets up the cache-significant keys for DirectToWeb use.
     static

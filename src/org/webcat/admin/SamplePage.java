@@ -27,8 +27,8 @@ import com.webobjects.appserver.*;
 /**
  * A property listing page.
  *
- *  @author edwards
- *  @author Last changed by $Author$
+ *  @author  Stephen Edwards
+ *  @author  Last changed by $Author$
  *  @version $Revision$, $Date$
  */
 public class SamplePage

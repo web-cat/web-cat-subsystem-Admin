@@ -28,8 +28,8 @@ import org.apache.log4j.Logger;
 /**
  * A property listing page.
  *
- *  @author edwards
- *  @author Last changed by $Author$
+ *  @author  Stephen Edwards
+ *  @author  Last changed by $Author$
  *  @version $Revision$, $Date$
  */
 public class FooPage
@@ -43,20 +43,21 @@ public class FooPage
      *
      * @param context The context to use
      */
-    public FooPage( WOContext context )
+    public FooPage(WOContext context)
     {
-        super( context );
+        super(context);
     }
 
 
+    //~ Methods ...............................................................
+
     // ----------------------------------------------------------
-    public void appendToResponse( WOResponse arg0, WOContext arg1 )
+    public void appendToResponse(WOResponse response, WOContext context)
     {
-        log.debug( "appendToResponse()" );
-        // TODO Auto-generated method stub
-        super.appendToResponse( arg0, arg1 );
+        log.debug("appendToResponse()");
+        super.appendToResponse(response, context);
     }
 
     //~ Instance/static variables .............................................
-    static Logger log = Logger.getLogger( FooPage.class );
+    static Logger log = Logger.getLogger(FooPage.class);
 }

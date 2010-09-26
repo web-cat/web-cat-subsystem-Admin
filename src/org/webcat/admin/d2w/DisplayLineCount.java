@@ -33,8 +33,9 @@ import java.util.regex.*;
  * for displaying long strings.  It simply shows a count of the number
  * of lines and characters.
  *
- *  @author edwards
- *  @version $Id$
+ *  @author  Stephen Edwards
+ *  @author  Last changed by $Author$
+ *  @version $Revision$, $Date$
  */
 public class DisplayLineCount
     extends er.directtoweb.components.strings.ERD2WDisplayString
@@ -47,9 +48,9 @@ public class DisplayLineCount
      *
      * @param context The context to use
      */
-    public DisplayLineCount( WOContext context )
+    public DisplayLineCount(WOContext context)
     {
-        super( context );
+        super(context);
     }
 
 
@@ -63,13 +64,13 @@ public class DisplayLineCount
     public Object objectPropertyValue()
     {
         Object value = super.objectPropertyValue();
-        if ( value != null )
+        if (value != null)
         {
             String str = value.toString();
             int lineCount = 0;
             Matcher newLineMatcher =
-                Pattern.compile( "$", Pattern.MULTILINE ).matcher( str );
-            while ( newLineMatcher.find() )
+                Pattern.compile("$", Pattern.MULTILINE).matcher(str);
+            while (newLineMatcher.find())
             {
                 lineCount++;
             }

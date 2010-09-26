@@ -22,15 +22,15 @@
 package org.webcat.admin;
 
 import org.webcat.core.*;
-import com.webobjects.eocontrol.*;
 import com.webobjects.foundation.*;
 
 // -------------------------------------------------------------------------
 /**
  *  The subsystem defining Web-CAT administrative tasks.
  *
- *  @author Stephen Edwards
- *  @version $Id$
+ *  @author  Stephen Edwards
+ *  @author  Last changed by $Author$
+ *  @version $Revision$, $Date$
  */
 public class Admin
     extends Subsystem
@@ -83,5 +83,5 @@ public class Admin
 
     // TODO: this should be refactored into the Subsystem parent class,
     // but that means handling Core in an appropriate way.
-    private static NSArray subsystemTabTemplate;
+    private static NSArray<TabDescriptor> subsystemTabTemplate;
 }

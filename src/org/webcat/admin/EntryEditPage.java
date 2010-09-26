@@ -23,18 +23,15 @@ package org.webcat.admin;
 
 import com.webobjects.appserver.*;
 import com.webobjects.directtoweb.*;
-import com.webobjects.eoaccess.*;
-import com.webobjects.eocontrol.*;
-import com.webobjects.foundation.*;
-import org.apache.log4j.Logger;
 import org.webcat.core.*;
 
 // -------------------------------------------------------------------------
 /**
  * A shell that redirects to the D2W-produced query-all page.
  *
- *  @author Stephen Edwards
- *  @version $Id$
+ *  @author  Stephen Edwards
+ *  @author  Last changed by $Author$
+ *  @version $Revision$, $Date$
  */
 public class EntryEditPage
     extends WCComponent
@@ -47,18 +44,18 @@ public class EntryEditPage
      *
      * @param context The context to use
      */
-    public EntryEditPage( WOContext context )
+    public EntryEditPage(WOContext context)
     {
-        super( context );
+        super(context);
     }
 
 
     //~ Methods ...............................................................
 
     // ----------------------------------------------------------
-    public void appendToResponse( WOResponse response, WOContext context )
+    public void appendToResponse(WOResponse response, WOContext context)
     {
-        WOComponent page = D2W.factory().defaultPage( session() );
-        response.setContent( page.generateResponse().content() );
+        WOComponent page = D2W.factory().defaultPage(session());
+        response.setContent(page.generateResponse().content());
     }
 }

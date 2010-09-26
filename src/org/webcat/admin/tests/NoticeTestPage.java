@@ -24,13 +24,13 @@ package org.webcat.admin.tests;
 import org.webcat.core.*;
 import com.webobjects.appserver.*;
 
-
 // -------------------------------------------------------------------------
 /**
  *  A simple test page for exercising error/confirmation message features.
  *
- *  @author  stedwar2
- *  @version $Id$
+ *  @author  Stephen Edwards
+ *  @author  Last changed by $Author$
+ *  @version $Revision$, $Date$
  */
 public class NoticeTestPage
     extends WCComponent
@@ -42,9 +42,9 @@ public class NoticeTestPage
      * Creates a new NoticeTestPage object.
      * @param context The context to use
      */
-    public NoticeTestPage( WOContext context )
+    public NoticeTestPage(WOContext context)
     {
-        super( context );
+        super(context);
     }
 
 
@@ -56,33 +56,33 @@ public class NoticeTestPage
     //~ Methods ...............................................................
 
     // ----------------------------------------------------------
-    public void appendToResponse( WOResponse response, WOContext context )
+    public void appendToResponse(WOResponse response, WOContext context)
     {
         advanceState();
-        super.appendToResponse( response, context );
+        super.appendToResponse(response, context);
     }
 
 
     // ----------------------------------------------------------
     public void advanceState()
     {
-        state = ( state + 1 ) % messages.length;
+        state = (state + 1) % messages.length;
         stateMsg = messages[state];
-        switch ( state )
+        switch (state)
         {
             case 1:
-                error( "this is error message 1." );
+                error("this is error message 1.");
                 break;
             case 2:
-                warning( "this is warning message 2." );
+                warning("this is warning message 2.");
                 break;
             case 3:
-                error( "this is error message 3." );
-                warning( "this is warning message 4." );
+                error("this is error message 3.");
+                warning("this is warning message 4.");
                 break;
             case 4:
-                confirmationMessage( "this is confirmation message 5." );
-                confirmationMessage( "this is confirmation message 6." );
+                confirmationMessage("this is confirmation message 5.");
+                confirmationMessage("this is confirmation message 6.");
                 break;
             default:
                 // Do nothing
@@ -100,7 +100,7 @@ public class NoticeTestPage
     //~ Instance/static variables .............................................
 
     private int state = -1;
-    private static final String[] messages = new String[]{
+    private static final String[] messages = {
         "Now in state 0, with no messages.",
         "Now in state 1, with one error message.",
         "Now in state 2, with one warning message.",

@@ -29,8 +29,9 @@ import com.webobjects.appserver.*;
  * {@link er.directtoweb.components.dates.ERD2WDisplayDateOrNull}
  * that uses the user's specified date formatting and selected time zone.
  *
- *  @author edwards
- *  @version $Id$
+ *  @author  Stephen Edwards
+ *  @author  Last changed by $Author$
+ *  @version $Revision$, $Date$
  */
 public class DisplayDate
     extends er.directtoweb.components.dates.ERD2WDisplayDateOrNull
@@ -43,8 +44,8 @@ public class DisplayDate
      *
      * @param context The context to use
      */
-    public DisplayDate( WOContext context )
+    public DisplayDate(WOContext context)
     {
-        super( context );
+        super(context);
     }
 }

@@ -23,17 +23,17 @@ package org.webcat.admin;
 
 import org.webcat.core.*;
 import com.webobjects.appserver.*;
-import com.webobjects.directtoweb.*;
 import er.extensions.appserver.ERXApplication;
 
 //-------------------------------------------------------------------------
 /**
-* Represents a standard Web-CAT page that has not yet been implemented
-* (is "to be defined").
-*
-*  @author Stephen Edwards
-*  @version $Id$
-*/
+ * Represents a standard Web-CAT page that has not yet been implemented
+ * (is "to be defined").
+ *
+ *  @author  Stephen Edwards
+ *  @author  Last changed by $Author$
+ *  @version $Revision$, $Date$
+ */
 public class AdminStatusPage
     extends WCComponent
 {
@@ -45,9 +45,9 @@ public class AdminStatusPage
      *
      * @param context The context to use
      */
-    public AdminStatusPage( WOContext context )
+    public AdminStatusPage(WOContext context)
     {
-        super( context );
+        super(context);
     }
 
 
@@ -74,6 +74,6 @@ public class AdminStatusPage
     {
         return net.sf.webcat.WCServletAdaptor.getInstance() == null
             || Application.configurationProperties()
-                .stringForKey( "coreKillAction" ) != null;
+                .stringForKey("coreKillAction") != null;
     }
 }

@@ -29,8 +29,9 @@ import com.webobjects.appserver.*;
  *  Displays the configuration parameters for a given subsystem and
  *  allows the corresponding settings to be edited.
  *
- *  @author  stedwar2
- *  @version $Id$
+ *  @author  Stephen Edwards
+ *  @author  Last changed by $Author$
+ *  @version $Revision$, $Date$
  */
 public class ConfigureSubsystemPage
     extends WCComponent
@@ -43,9 +44,9 @@ public class ConfigureSubsystemPage
      *
      * @param context The context to use
      */
-    public ConfigureSubsystemPage( WOContext context )
+    public ConfigureSubsystemPage(WOContext context)
     {
-        super( context );
+        super(context);
     }
 
 
@@ -64,13 +65,13 @@ public class ConfigureSubsystemPage
     {
         boolean result = Application.configurationProperties().attemptToSave();
         Application.configurationProperties().updateToSystemProperties();
-        ( (Application)application() ).subsystemManager()
+        ((Application)application()).subsystemManager()
             .clearSubsystemPropertyCache();
         boolean superResult = super.applyLocalChanges();
-        if ( !result )
+        if (!result)
         {
-            warning( "Cannot write to configuration file, so changes have "
-                + "not been made permanent." );
+            warning("Cannot write to configuration file, so changes have "
+                + "not been made permanent.");
         }
         return  superResult && result;
     }
@@ -101,7 +102,7 @@ public class ConfigureSubsystemPage
     // ----------------------------------------------------------
     public WOComponent finish()
     {
-        if ( applyLocalChanges() )
+        if (applyLocalChanges())
         {
             return nextPage;
         }
