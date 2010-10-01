@@ -132,8 +132,10 @@ public class SubsystemManagerPage
         {
             availableSubsystems.remove(s.descriptor().providerVersion());
         }
+        FeatureDescriptor[] descriptors =
+            new FeatureDescriptor[availableSubsystems.size()];
         return new NSArray<FeatureDescriptor>(
-            (FeatureDescriptor[])availableSubsystems.toArray());
+            availableSubsystems.toArray(descriptors));
     }
 
 
