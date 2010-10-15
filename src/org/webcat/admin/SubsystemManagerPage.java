@@ -78,11 +78,10 @@ public class SubsystemManagerPage
     public void appendToResponse(WOResponse response, WOContext context)
     {
         terse = null;
-        ((Application)Application.application()).subsystemManager()
+        Application.wcApplication().subsystemManager()
             .refreshSubsystemDescriptorsAndProviders();
         subsystems = ERXArrayUtilities.sortedArraySortedWithKey(
-            ((Application)Application.application())
-                .subsystemManager().subsystems(),
+            Application.wcApplication().subsystemManager().subsystems(),
             "name",
             EOSortOrdering.CompareCaseInsensitiveAscending);
         if (newSubsystems == null)
