@@ -22,6 +22,7 @@
 package org.webcat.admin;
 
 import java.util.Map;
+import java.util.Set;
 import com.webobjects.appserver.*;
 import com.webobjects.foundation.*;
 import er.extensions.appserver.ERXDisplayGroup;
@@ -117,12 +118,13 @@ public class PropertyListPage
     public void awake()
     {
         super.awake();
+        Set<?> set = ((Session)session()).properties().inheritedEntrySet();
         @SuppressWarnings("unchecked")
+        Map.Entry<String, String>[] entryArray =
+            new Map.Entry[set.size()];
+        entryArray = set.toArray(entryArray);
         NSMutableArray<Map.Entry<String, String>> entries =
-            new NSMutableArray<Map.Entry<String, String>>(
-                (Map.Entry<String, String>[])
-                ((Session)session()).properties().inheritedEntrySet()
-                    .toArray());
+            new NSMutableArray<Map.Entry<String, String>>(entryArray);
         for (int i = 0; i < entries.count(); i++)
         {
             entries.set(i, new Entry(entries.get(i)));
