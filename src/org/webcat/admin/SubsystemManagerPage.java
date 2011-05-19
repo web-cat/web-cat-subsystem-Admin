@@ -26,6 +26,7 @@ import com.webobjects.eocontrol.*;
 import com.webobjects.foundation.*;
 import er.extensions.foundation.ERXArrayUtilities;
 import er.extensions.foundation.ERXValueUtilities;
+import java.io.IOException;
 import java.util.Collection;
 import java.util.HashSet;
 import net.sf.webcat.FeatureDescriptor;
@@ -204,7 +205,16 @@ public class SubsystemManagerPage
         }
         else
         {
-            if (FeatureProvider.getProvider(providerURL) == null)
+            FeatureProvider provider = null;
+            try
+            {
+                provider = FeatureProvider.getProvider(providerURL);
+            }
+            catch (IOException e)
+            {
+                // leave provider == null
+            }
+            if (provider == null)
             {
                 warning("Cannot read feature provider information from "
                     + " specified URL: '" + providerURL + "'.");
