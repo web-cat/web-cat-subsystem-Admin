@@ -1,5 +1,5 @@
 /*==========================================================================*\
- |  $Id$
+ |  $Id: Admin.java,v 1.2 2010/09/26 23:35:42 stedwar2 Exp $
  |*-------------------------------------------------------------------------*|
  |  Copyright (C) 2006-2008 Virginia Tech
  |
@@ -29,8 +29,8 @@ import com.webobjects.foundation.*;
  *  The subsystem defining Web-CAT administrative tasks.
  *
  *  @author  Stephen Edwards
- *  @author  Last changed by $Author$
- *  @version $Revision$, $Date$
+ *  @author  Last changed by $Author: stedwar2 $
+ *  @version $Revision: 1.2 $, $Date: 2010/09/26 23:35:42 $
  */
 public class Admin
     extends Subsystem

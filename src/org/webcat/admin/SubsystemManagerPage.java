@@ -1,5 +1,5 @@
 /*==========================================================================*\
- |  $Id$
+ |  $Id: SubsystemManagerPage.java,v 1.6 2011/05/19 16:57:01 stedwar2 Exp $
  |*-------------------------------------------------------------------------*|
  |  Copyright (C) 2006-2008 Virginia Tech
  |
@@ -40,8 +40,8 @@ import org.webcat.core.*;
  *  tab.
  *
  *  @author  Stephen Edwards
- *  @author  Last changed by $Author$
- *  @version $Revision$, $Date$
+ *  @author  Last changed by $Author: stedwar2 $
+ *  @version $Revision: 1.6 $, $Date: 2011/05/19 16:57:01 $
  */
 public class SubsystemManagerPage
     extends WCComponent

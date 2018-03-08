@@ -1,7 +1,7 @@
 /*==========================================================================*\
- |  $Id: AdminStatusPage.java,v 1.3 2010/09/26 23:35:42 stedwar2 Exp $
+ |  $Id$
  |*-------------------------------------------------------------------------*|
- |  Copyright (C) 2006-2008 Virginia Tech
+ |  Copyright (C) 2017-18 Virginia Tech
  |
  |  This file is part of Web-CAT.
  |
@@ -19,85 +19,89 @@
  |  along with Web-CAT; if not, see <http://www.gnu.org/licenses/>.
 \*==========================================================================*/
 
+
 package org.webcat.admin;
 
-import org.webcat.core.*;
-import com.webobjects.appserver.*;
-import er.extensions.appserver.ERXApplication;
+import org.webcat.core.Application;
+import com.webobjects.appserver.WOActionResults;
+import com.webobjects.appserver.WORequest;
+import er.extensions.appserver.ERXDirectAction;
 
 //-------------------------------------------------------------------------
 /**
- * Represents a standard Web-CAT page that has not yet been implemented
- * (is "to be defined").
+ * This direct action class handles all response actions for this subsystem.
  *
- *  @author  Stephen Edwards
- *  @author  Last changed by $Author: stedwar2 $
- *  @version $Revision: 1.3 $, $Date: 2010/09/26 23:35:42 $
+ * @author  edwards
+ * @author  Last changed by $Author$
+ * @version $Revision$, $Date$
  */
-public class AdminStatusPage
-    extends WCComponent
+public class adminctl
+    extends ERXDirectAction
 {
     //~ Constructors ..........................................................
 
     // ----------------------------------------------------------
     /**
-     * Creates a new AdminStatusPage object.
+     * Creates a new DirectAction object.
      *
-     * @param context The context to use
+     * @param aRequest
+     *            The request to respond to
      */
-    public AdminStatusPage(WOContext context)
+    public adminctl(WORequest aRequest)
     {
-        super(context);
+        super(aRequest);
     }
 
 
     //~ Methods ...............................................................
 
     // ----------------------------------------------------------
-    public WOComponent gracefulShutdown()
+    /**
+     * The default action simply returns an invalid request response.
+     *
+     * @return The session response
+     */
+    public WOActionResults defaultAction()
     {
-        ERXApplication.erxApplication().startRefusingSessions();
-        return null;
+        return RestResponse.error("invalid request");
     }
 
 
     // ----------------------------------------------------------
-    public WOComponent dieNow()
-    {
-        ERXApplication.erxApplication().killInstance();
-        return null;
-    }
-
-
-    // ----------------------------------------------------------
-    public WOComponent dumpThreadStacks()
+    /**
+     * Triggers a JStack-like thread dump.
+     *
+     * @return An acknowledgment message.
+     */
+    public WOActionResults threadDumpAction()
     {
         JStack.threadDump();
-        return null;
+        return RestResponse.message("thread dump generated");
     }
 
 
     // ----------------------------------------------------------
-    public WOComponent enableSqlLogging()
+    /**
+     * Enables SQL-level logging.
+     *
+     * @return An acknowledgment message.
+     */
+    public WOActionResults sqlLoggingOnAction()
     {
         Application.enableSQLLogging();
-        return null;
+        return RestResponse.message("SQL logging enabled");
     }
 
 
     // ----------------------------------------------------------
-    public WOComponent disableSqlLogging()
+    /**
+     * Disables SQL-level logging.
+     *
+     * @return An acknowledgment message.
+     */
+    public WOActionResults sqlLoggingOffAction()
     {
         Application.disableSQLLogging();
-        return null;
-    }
-
-
-    // ----------------------------------------------------------
-    public boolean canRestart()
-    {
-        return net.sf.webcat.WCServletAdaptor.getInstance() == null
-            || Application.configurationProperties()
-                .stringForKey("coreKillAction") != null;
+        return RestResponse.message("SQL logging disabled");
     }
 }

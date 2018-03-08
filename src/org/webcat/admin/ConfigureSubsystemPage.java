@@ -1,5 +1,5 @@
 /*==========================================================================*\
- |  $Id$
+ |  $Id: ConfigureSubsystemPage.java,v 1.2 2010/09/26 23:35:42 stedwar2 Exp $
  |*-------------------------------------------------------------------------*|
  |  Copyright (C) 2006-2008 Virginia Tech
  |
@@ -30,8 +30,8 @@ import com.webobjects.appserver.*;
  *  allows the corresponding settings to be edited.
  *
  *  @author  Stephen Edwards
- *  @author  Last changed by $Author$
- *  @version $Revision$, $Date$
+ *  @author  Last changed by $Author: stedwar2 $
+ *  @version $Revision: 1.2 $, $Date: 2010/09/26 23:35:42 $
  */
 public class ConfigureSubsystemPage
     extends WCComponent

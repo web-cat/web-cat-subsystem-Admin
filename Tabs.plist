@@ -29,9 +29,20 @@
         };
       };
       Subsystems = {
-        pageName    = org.webcat.admin.SubsystemManagerPage;
         accessLevel = 90;
         priority    = 2;
+        children = {
+          Manage = {
+            pageName    = org.webcat.admin.SubsystemManagerPage;
+            accessLevel = 90;
+            priority    = 100;
+          };
+          LTI = {
+            pageName    = org.webcat.admin.LTIManagerPage;
+            accessLevel = 90;
+            priority    = 200;
+          };
+        };
       };
       "Edit Database" = {
         pageName    = org.webcat.admin.EntryEditPage;

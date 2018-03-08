@@ -1,5 +1,5 @@
 /*==========================================================================*\
- |  $Id$
+ |  $Id: WCPageWrapper.java,v 1.2 2010/09/26 23:35:42 stedwar2 Exp $
  |*-------------------------------------------------------------------------*|
  |  Copyright (C) 2006-2009 Virginia Tech
  |
@@ -30,8 +30,8 @@ import org.webcat.core.*;
  * The page wrapper for direct-to-web pages.
  *
  *  @author  Stephen Edwards
- *  @author  Last changed by $Author$
- *  @version $Revision$, $Date$
+ *  @author  Last changed by $Author: stedwar2 $
+ *  @version $Revision: 1.2 $, $Date: 2010/09/26 23:35:42 $
  */
 public class WCPageWrapper
     extends WOComponent

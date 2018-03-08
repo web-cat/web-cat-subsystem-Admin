@@ -1,0 +1,130 @@
+<wo:org.webcat.core.WCPageWithNavigation title="LTI Configuration">
+
+<wo:org.webcat.core.WCPageModule title="LTI Credentials">
+<table><thead><tr><th>Institution</th>
+  <th>Type</th><th>Consumer Key</th><th>Consumer Secret</th><th>URL</th></tr>
+</thead><tbody><wo:loop list="$lmsDisplayGroup.displayedObjects" item="$instance">
+<wo:org.webcat.core.TableRow index="$index">
+<td><wo:str value="$instance.authenticationDomain.displayableName"/></td>
+<td><wo:str value="$instance.lmsType.name"/></td>
+<td><wo:str value="$instance.consumerKey"/></td>
+<td><wo:str value="$instance.consumerSecret"/></td>
+<td><wo:if condition="$instance.url">
+<wo:link href="$instance.url"><wo:str value="$instance.url"/></wo:link></wo:if></td>
+</wo:org.webcat.core.TableRow></wo:loop></tbody></table>
+</wo:org.webcat.core.WCPageModule>
+
+<wo:org.webcat.core.WCPageModule title="Add Web-CAT to an LMS Course">
+<p>To use Web-CAT in an LTI-compatible Learning Management System (LMS), you
+will need to install Web-CAT as an external LTI application. Depending on
+the LMS, this may be done system-wide, or at the level of individual courses.
+For system-wide installation, talk to your LMS administrator. For individual
+courses, follow the steps below.</p>
+
+<h3>Step 1: Set Up Course Offering(s) on Web-CAT</h3>
+
+<p>Before connecting your LMS course to Web-CAT, first create your Web-CAT
+course offering(s) normally. Set up instructor or grader access for your
+course staff, and upload your course roster(s).</p>
+
+<p>Next, visit your course site on your LMS. Here, we'll use Canvas as
+an example. Copy the URL of your course's home page, which might look like
+this:</p>
+
+<pre>
+https://canvas.vt.edu/courses/58933
+</pre>
+
+<p>Now, edit your course offering's properties on Web-CAT and paste this
+value into the URL box:</p>
+
+<p><wo:image filename="images/lti/course-url-setting.png" framework="Core"/></p>
+
+<p>Web-CAT will auto-detect the LTI ID from the URL for Canvas courses. There
+is also a separate textbox where you can specify the LTI ID for the
+assignment (for other LMSes).</p>
+
+<p>If you have multiple course offerings using the same LMS web site, repeat
+this process for each one, using the same URL. If you have separate LMS
+web sites for each course offering, use the specific URL for each LMS
+course site for the corresponding course offering.</p>
+
+<p>Now Web-CAT will know which course offering(s) correspond to your course
+within your LMS.</p>
+
+<h3>Step 2: Install Web-CAT as an LTI App</h3>
+
+<p>If Web-CAT is not installed system-wide on an LMS, instructors will
+typically add it to their individual courses on the LMS instead. To do this,
+you'll need 4 pieces of information:</p>
+<table>
+<tr><th>Tool Name:</th><td>Web-CAT</td></tr>
+<tr><th>Configuration URL:</th><td>
+  <wo:link href="$ltiConfigUrl"><wo:str value="$ltiConfigUrl"/></wo:link>
+  </td></tr>
+<tr><th>Consumer Key:</th><td>(see table above)</td></tr>
+<tr><th>Consumer Secret:</th><td>(see table above)</td></tr>
+</table>
+
+<p>Follow your LMS instructions for adding Web-CAT as an external LTI tool
+in your course. For reference, you can read the Canvas instructions for
+doing this:</p>
+
+<p><a href="https://guides.instructure.com/m/4152/l/74482-how-do-i-configure-an-external-app-for-a-course-using-a-url">
+Canvas instructions for adding to an LTI tool course</a></p>
+
+</wo:org.webcat.core.WCPageModule>
+
+<wo:org.webcat.core.WCPageModule title="Use Web-CAT for an LMS Assignment">
+
+<p>Before Web-CAT can use used in a specific assignment, it must be
+added as an external LTI tool to the course (or system-wide)--see the
+instructions above. Next, you must also configure it for each assignment
+where Web-CAT will be used using the steps below.</p>
+
+<h3>Step 1: Create Your Assignment Writeup</h3>
+
+<p>To use Web-CAT in an assignment, you will write your assignment
+instructions as you normally would in your LMS. Perform that step first
+(you can always edit the assignment later if corrections are needed).</p>
+
+
+<h3>Step 2: Create Your Assignment on Web-CAT</h3>
+
+<p>Next, create the assignment on Web-CAT as well. Set up your assignment's
+reference tests and any grading options that are necessary.</p>
+
+
+<h3>Step 3: Copy Your Assignment URL into Web-CAT</h3>
+
+<p>Visit your assignment writeup on your LMS, and copy the URL for the
+assignment writeup page. For example, on Canvas your assignment URL
+might look like this:</p>
+
+<pre>
+https://canvas.vt.edu/courses/58933/assignments/282390
+</pre>
+
+<p>Now, edit your assignment's properties on Web-CAT and paste this
+value into the URL box:</p>
+
+<p><wo:image filename="images/lti/assignment-url-setting.png" framework="Core"/></p>
+
+<p>Note that the URL shown here includes both the course ID from the LMS,
+and also the assignment ID. For Canvas URLs, Web-CAT will automatically
+extract the assignment's ID from the URL. For other LMSes, there is a
+separate entry for the LTI ID used for the assignment.</p>
+
+<h3>Step 4: Add Web-CAT as an External LTI Tool</h3>
+
+<p>To use Web-CAT in an assignment, you will configure the assignment on
+your LMS to use an external tool for <strong>assignment submissions</strong>.
+Follow your LMS instructions for using an external LTI tool
+to accept assignment submissions. For reference, you can read the Canvas
+instructions for doing this:</p>
+
+<p><a href="https://guides.instructure.com/m/4152/l/501360-how-do-i-add-an-assignment-using-an-external-app">
+Canvas instructions for using an external LTI tool for assignment submissions</a></p>
+</wo:org.webcat.core.WCPageModule>
+
+</wo:org.webcat.core.WCPageWithNavigation>

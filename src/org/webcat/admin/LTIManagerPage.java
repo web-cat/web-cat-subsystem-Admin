@@ -1,7 +1,5 @@
 /*==========================================================================*\
- |  $Id: Log4JConfigurationPage.java,v 1.2 2010/09/26 23:35:42 stedwar2 Exp $
- |*-------------------------------------------------------------------------*|
- |  Copyright (C) 2006-2008 Virginia Tech
+ |  Copyright (C) 2006-2018 Virginia Tech
  |
  |  This file is part of Web-CAT.
  |
@@ -22,30 +20,50 @@
 package org.webcat.admin;
 
 import com.webobjects.appserver.*;
+import com.webobjects.eocontrol.*;
+import com.webobjects.foundation.*;
+import er.extensions.appserver.ERXDisplayGroup;
+import er.extensions.foundation.ERXArrayUtilities;
+import er.extensions.foundation.ERXValueUtilities;
+import java.io.IOException;
+import java.util.Collection;
+import java.util.HashSet;
+import net.sf.webcat.FeatureDescriptor;
+import net.sf.webcat.FeatureProvider;
+import org.apache.log4j.Logger;
+import org.webcat.admin.PropertyListPage.Entry;
+import org.webcat.core.*;
+import org.webcat.core.lti.LMSInstance;
 
 // -------------------------------------------------------------------------
 /**
- * A component for managing log4J settings.
+ *  The main "control panel" page for subsystems in the administration
+ *  tab.
  *
  *  @author  Stephen Edwards
- *  @author  Last changed by $Author: stedwar2 $
- *  @version $Revision: 1.2 $, $Date: 2010/09/26 23:35:42 $
  */
-public class Log4JConfigurationPage
-    extends er.extensions.logging.ERXLog4JConfiguration
+public class LTIManagerPage
+    extends WCComponent
 {
     //~ Constructors ..........................................................
 
     // ----------------------------------------------------------
     /**
-     * Creates a new Settings object.
+     * Creates a new page object.
      *
      * @param context The context to use
      */
-    public Log4JConfigurationPage(WOContext context)
+    public LTIManagerPage(WOContext context)
     {
         super(context);
     }
+
+
+    //~ KVC Attributes (must be public) .......................................
+
+    public LMSInstance instance;
+    public ERXDisplayGroup<LMSInstance> lmsDisplayGroup;
+    public int index;
 
 
     //~ Methods ...............................................................
@@ -53,15 +71,29 @@ public class Log4JConfigurationPage
     // ----------------------------------------------------------
     public void appendToResponse(WOResponse response, WOContext context)
     {
-        session().setObjectForKey(
-            Boolean.TRUE, "ERXLog4JConfiguration.enabled");
+        lmsDisplayGroup.setObjectArray(LMSInstance.allObjects(
+            session().defaultEditingContext()));
         super.appendToResponse(response, context);
     }
 
 
     // ----------------------------------------------------------
-    public WOComponent back()
+    public String lmsName()
     {
-        return pageWithName(SettingsPage.class.getName());
+        return LMSInstance.lmsNameFor(instance);
     }
+
+
+    // ----------------------------------------------------------
+    public String ltiConfigUrl()
+    {
+        return Application.completeURLWithRequestHandlerKey(context(),
+            Application.application().directActionRequestHandlerKey(),
+            "ltiConfiguration", null, true, 0);
+    }
+
+
+    //~ Instance/static variables .............................................
+
+    static Logger log = Logger.getLogger(LTIManagerPage.class);
 }
