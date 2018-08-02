@@ -5,10 +5,10 @@ subsystem.Admin = org.webcat.admin.Admin
 
 Admin.version.major = 1
 Admin.version.minor = 3
-Admin.version.revision = 5
+Admin.version.revision = 6
 Admin.requires = Core
 
-Admin.copyright = (c) 2006-2012 Virginia Tech Department of Computer Science
+Admin.copyright = (c) 2006-2018 Virginia Tech Department of Computer Science
 Admin.provider = Virginia Tech Computer Science
 Admin.provider.url = http\://web-cat.org/updates
 Admin.info.url = http\://web-cat.org/WCWiki/AdminSubsystem
